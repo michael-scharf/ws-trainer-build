@@ -1,15 +1,16 @@
 ## Credits
 
 * Original project
-  - [Peter Siering](https://github.com/psct/)  
+  - [Peter Siering](https://github.com/psct/)
   Idea, Packaging, Patching
-  - Ronald Eikenberg  
+  - Ronald Eikenberg
   Idea, Concept
-  - [Merlin Schumacher](https://github.com/merlinschumacher)  
+  - [Merlin Schumacher](https://github.com/merlinschumacher)
   Web-Interface
 
-* Standalone training system
-  Prototype
+* Standalone Wireshark Online Trainer
   - Matthias Machtolf, Hochschule Esslingen
-  Release
+  Prototype
   - Michael Scharf, Hochschule Esslingen
+  Release
+

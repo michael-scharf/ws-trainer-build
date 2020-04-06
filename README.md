@@ -22,16 +22,12 @@ This repository contains a build environment to compile GTK and Wireshark with t
 - Download the repository to a folder
 - Configure sudo for the given user
 - Execute the script build.sh
-- Approve the installation of additional packages, if necessary
 - Wait and grab 1, 2, or many more cups of coffee
 - The compilation should complete sucessfully
-- The requered deb files can finally be found in the directory dist/
+- The deb files required for installation can finally be found in the directory dist/
 
 **References**
 
-An earlier version of the build script can be retrieved from:
+An earlier version of the build script can be retrieved from: https://github.com/zeya117/wshark
 
-```
-git clone https://github.com/zeya117/Wireshark-GTK-Uebungsumgebung.git
-```
-
+The original code from the c't project is published at: https://github.com/ct-Open-Source/ctraspion
