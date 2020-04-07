@@ -1,0 +1,128 @@
+diff -Naur wireshark-2.6.8.orig/epan/print_stream.c wireshark-2.6.8-new/epan/print_stream.c
+--- wireshark-2.6.8.orig/epan/print_stream.c	2019-04-08 21:02:55.000000000 +0200
++++ wireshark-2.6.8-new/epan/print_stream.c	2020-04-07 00:36:10.903894187 +0200
+@@ -215,6 +215,8 @@
+ {
+     FILE *fh;
+ 
++    return NULL; /* PATCH for ws-trainer: No printing permitted */
++
+     /* Open the file or command for output */
+     if (to_file)
+         fh = ws_fopen(dest, "w");
+diff -Naur wireshark-2.6.8.orig/ui/gtk/follow_stream.c wireshark-2.6.8-new/ui/gtk/follow_stream.c
+--- wireshark-2.6.8.orig/ui/gtk/follow_stream.c	2019-04-08 21:02:55.000000000 +0200
++++ wireshark-2.6.8-new/ui/gtk/follow_stream.c	2020-04-07 10:01:34.437376130 +0200
+@@ -590,6 +590,10 @@
+     char            *tmp_namebuf;
+ #endif
+ 
++    /* PATCH for ws-trainer: No printing permitted */
++    simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No printing permitted.");
++    return;
++
+     switch (prefs.pr_dest) {
+     case PR_DEST_CMD:
+ #ifdef _WIN32
+diff -Naur wireshark-2.6.8.orig/ui/gtk/print_dlg.c wireshark-2.6.8-new/ui/gtk/print_dlg.c
+--- wireshark-2.6.8.orig/ui/gtk/print_dlg.c	2019-04-08 21:02:55.000000000 +0200
++++ wireshark-2.6.8-new/ui/gtk/print_dlg.c	2020-04-07 10:19:58.125376130 +0200
+@@ -133,6 +133,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No print dialog permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(print_prefs_init == FALSE) {
+     print_prefs_init          = TRUE;
+@@ -202,6 +206,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No text export permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(export_text_prefs_init == FALSE) {
+     export_text_prefs_init    = TRUE;
+@@ -257,6 +265,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No Export ps permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(export_ps_prefs_init == FALSE) {
+     export_ps_prefs_init      = TRUE;
+@@ -312,6 +324,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No Export psml permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(export_psml_prefs_init == FALSE) {
+     export_psml_prefs_init    = TRUE;
+@@ -366,6 +382,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No Export pdml permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(export_pdml_prefs_init == FALSE) {
+     export_pdml_prefs_init    = TRUE;
+@@ -419,6 +439,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No Export csv permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(export_csv_prefs_init == FALSE) {
+     export_csv_prefs_init     = TRUE;
+@@ -472,6 +496,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No Export carrays permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(export_carrays_prefs_init == FALSE) {
+     export_carrays_prefs_init = TRUE;
+@@ -527,6 +555,10 @@
+     return;
+   }
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No Export JSON permitted.");
++  return;
++
+   /* get settings from preferences (and other initial values) only once */
+   if(export_json_prefs_init == FALSE) {
+     export_json_prefs_init    = TRUE;
+@@ -1022,6 +1054,10 @@
+ #endif
+   cf_print_status_t  status;
+ 
++  /* PATCH for ws-trainer: No printing permitted */
++  simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "No print command permitted.");
++  return;
++
+   args = (print_args_t *)g_object_get_data(G_OBJECT(ok_bt), PRINT_ARGS_KEY);
+ 
+   /* Check whether the range is valid. */

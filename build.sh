@@ -15,9 +15,9 @@ DISTDIR=$DIR/dist
 DISTFILES="wireshark-gtk_2.6.8-1.1_amd64.deb libgtk-3-0_3.24.5-1_amd64.deb"
 
 echo "* Installing all required packages"
-sudo apt-get build-dep gtk+3.0
-sudo apt-get build-dep wireshark-gtk
-sudo apt-get install devscripts
+sudo apt build-dep -y gtk+3.0
+sudo apt build-dep -y wireshark-gtk
+sudo apt install -y devscripts
 
 echo "* Preparing deb and dist directory"
 mkdir -p $DEBDIR
@@ -26,7 +26,7 @@ mkdir -p $DISTDIR
 echo "* Building libgtk-3-0"
 mkdir -p $BUILDDIR_GTK
 cd $BUILDDIR_GTK
-apt-get source gtk+3.0
+apt source gtk+3.0
 cd gtk+3.0-3.24.5
 patch -p1 < $PATCHDIR/ct_raspion_gtk+3.0-3.24.5.patch
 echo "* debuild for gtk+3.0 requires sudo"
@@ -35,9 +35,10 @@ sudo debuild -i -us -uc -b
 echo "* Building wireshark-gtk"
 mkdir -p $BUILDDIR_WS
 cd $BUILDDIR_WS
-apt-get source wireshark-gtk
+apt source wireshark-gtk
 cd wireshark-2.6.8
 patch -p1 < $PATCHDIR/ct_raspion_wireshark-gtk-2.6.8.patch
+patch -p1 < $PATCHDIR/ws-trainer_wireshark-gtk-2.6.8.patch
 debuild -i -us -uc -b
 
 echo "* Cleaning up"
