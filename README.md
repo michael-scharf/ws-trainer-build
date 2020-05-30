@@ -2,15 +2,19 @@
 
 **Overview**
 
-Wireshark-GTK can run in a Web browser using a Broadwayd server. This can be useful for online training on how to use Wireshark.
+Wireshark-GTK can run in a Web server using a Broadwayd server. This can be useful for online training on how to use Wireshark, as only a Web browser is needed.
 
-However, some small patches are needed both for GTK and Wireshark. These patches are described in the German c't magazine 1/2020:
+ws-trainer has been developed for preparing [lab experiments](https://www.ktlab.de) at [Hochschule Esslingen - University of Applied Sciences](https://www.hs-esslingen.de). 
+
+This solution requires some small patches both for GTK and Wireshark. These patches are described in the German c't magazine 1/2020:
 
 [c’t-Raspion: Datenpetzen finden und bändigen](https://www.heise.de/ct/ausgabe/2020-1-c-t-Raspion-Datenpetzen-finden-und-baendigen-4611153.html)
 
 [c't-Raspion: Projektseite – Foren weitere Hinweise](https://www.heise.de/ct/artikel/c-t-Raspion-Projektseite-4606645.html)
 
 This repository contains a build environment to compile GTK and Wireshark with the patches developed by c't.
+
+Any feedback or suggestions? Please reach out to michael.scharf@ktlab.de!
 
 **Prerequisits**
 
